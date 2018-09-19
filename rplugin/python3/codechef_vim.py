@@ -53,6 +53,7 @@ class Codechef:
                 self.nvim.current.line.strip())
         else:
             idx = self.contest.problem_codes.index(args[0])
+        self.clear_current_buffer_and_write(['Loading...'])
         problem = self.contest[idx]
 
         body = codechef_cli.util.html_to_terminal(problem.body)
