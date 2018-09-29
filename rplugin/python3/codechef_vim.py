@@ -66,6 +66,10 @@ class Codechef:
     def open_old_contest(self, args):
         self.clear_current_buffer_and_write(self.contest.problem_codes)
 
+    @neovim.command('CodechefSubmit', range='', nargs='*')
+    def submit_problem(self, args, range):
+        self.nvim.command('!codechef submissions add -pc {} -l {} -if {}'.format(*args))
+
     def clear_current_buffer_and_write(self, li):
         self.nvim.funcs.execute('setlocal noro')
         self.nvim.funcs.execute("1,$d")
